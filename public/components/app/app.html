@@ -1,16 +1,1 @@
-<slick class="main-slick" settings="app.mainSlickConfig" >
-    <div ng-repeat="image in app.model.images">
-        <img ng-src="{{image.src}}"/>
-    </div>
-</slick>
-<slick class="sub-slick" settings="app.subSlickConfig" slides-to-show=3 slides-to-scroll=1 center-mode="true">
-    <div ng-repeat="image in app.model.images">
-        <div class='image-card' ng-click="app.switchSlide(image.id)">
-            <img ng-src="{{image.src}}">
-            <div class="image-card-content">
-                <span>{{image.id}}</span>
-                <h2>{{image.title}}</h2>
-            </div>
-        </div>
-    </div>
-</slick>
+<image-slider></image-slider>

@@ -1,0 +1,80 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+
+@subSlickHeight: 250px;
+
+body{
+  background-color: #f5f5f5;
+}
+
+.main-slick-container {
+  width: 500px;
+  left:50%;
+  transform: translateX(-50%);
+  border: solid;
+  position: relative;
+  i{
+    color: white;
+    top: 50%;
+    font-size: 40px;
+    position: absolute;
+    cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    opacity: 0.8;
+    z-index: 999;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
+  i.glyphicon.glyphicon-chevron-right {
+    left: 100%;
+    transform: translate(-100%,-50%);
+  }
+  i.glyphicon.glyphicon-chevron-left {
+    left:0%;
+    top: 50%;
+    transform: translate(0%,-50%);
+  }
+
+  slick.main-slick {
+
+    img{
+      position: relative;
+      left:50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+slick.sub-slick {
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+
+  height: @subSlickHeight;
+  .image-card {
+    height: @subSlickHeight;
+    background-color: white;
+    margin:25px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.26);
+    color: #818181;
+    -webkit-transition: margin 0.3s;
+    transition: margin 0.3s;
+    &:hover{
+      margin-top: 10px;
+    }
+    img{
+      position: relative;
+      left:50%;
+      transform: translateX(-50%);
+      height:(@subSlickHeight*60/100);
+    }
+    .image-card-content {
+      padding-left: 25px;
+    }
+  }
+
+}
+
+slick *:focus {outline-color: transparent;}
