@@ -3,19 +3,34 @@
     {
     "id": 1,
     "title": "kenny",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
     "src": "/assets/kenny.jpg"
     },{
     "id": 2,
     "title": "butters",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
     "src": "/assets/butters.png"
     },{
     "id": 3,
     "title": "cartman",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
     "src": "/assets/cartman.jpg"
     },{
     "id": 4,
     "title": "stan",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
     "src": "/assets/stan.jpg"
+    },
+    {
+    "id": 5,
+    "title": "kyle",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
+    "src": "/assets/kyle.png"
     }
   ]
 }

@@ -1,0 +1,27 @@
+.image-card {
+  height: 250px;
+  background-color: white;
+  margin: 25px;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.26);
+  color: #818181;
+  -webkit-transition: margin 0.3s;
+  transition: margin 0.3s;
+  &:hover {
+    margin-top: 10px;
+  }
+  img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: (250px*60/100);
+    width: 80%;
+  }
+  h2 {
+    color: black;
+    font-weight: bold;
+  }
+  .image-card-content {
+    padding-left: 25px;
+  }
+}

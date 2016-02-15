@@ -1,65 +1,61 @@
-import angular from "angular";
-import mock from "./model.json";
-import style from "./image-slider.less";
-export default angular.module('imageSlider',['slickCarousel'])
-.directive('imageSlider',function(){
-  return{
-    template:require('./image-slider.html'),
-    controller:imageSliderController,
-    controllerAs:'imageSlider'
-  }
-});
+import uiBotstrap from "angular-ui-bootstrap";
+import ngAnimate from "angular-animate";
+import stlye from "./image-slider.less";
+import imageSilderCard from "./children/image-slider-card/image-slider-card.js";
+
+export default angular.module('imageSlider',[ngAnimate,uiBotstrap,imageSilderCard.name,'slickCarousel'])
+  .directive('imageSilder',function(){
+    return{
+      scope:{
+        slides:"=",
+        working: "="
+      },
+      template:require('./image-slider.html'),
+      controller:imageSliderController,
+      controllerAs:'imageSilder'
+    }
+  })
 
 class imageSliderController{
   constructor($scope,$timeout){
-    this.timeout = $timeout;
-    this.mainSlickConfig = {
-      draggable: false,
-      method:{},
-      event:{
-        beforeChange: function (event, slick, currentSlide, nextSlide) {
-        },
-      }
-    };
+    this.slides = $scope.slides;
 
     this.subSlickConfig = {
       draggable: false,
       method:{},
-      event:{
-        beforeChange: function (event, slick, currentSlide, nextSlide) {
-        },
-      }
     };
 
-    this.model = mock;
-  }
+    this.loaderSrc = "/assets/film_loader_sq.gif"
+    var loader = new Image();
+    loader.src = $scope.loaderSrc;
 
+    $timeout(()=>{
 
-  slidersControl(action,slideId){
-    console.log(action);
-    switch(action) {
-      case 'go':
-        this.timeout(()=> {
-          this.subSlickConfig.method.slickGoTo(slideId - 1)
-          this.mainSlickConfig.method.slickGoTo(slideId - 1)
-        });
-        break;
-      case 'next':
-        this.timeout(()=> {
-          this.subSlickConfig.method.slickNext();
-          this.mainSlickConfig.method.slickNext()
-        });
-        break;
-      case 'prev':
-        this.timeout(()=> {
-          this.subSlickConfig.method.slickPrev();
-          this.mainSlickConfig.method.slickPrev()
-        });
-        break;
-      default:
-      console.warn('illigal action');
-    }
+      //i know its a little hacky but...
+      var arrows = $(".image-slider-container").find("a")
+      //prev arrow
+      arrows[0].onclick = ()=>{
+        this.subSlickConfig.method.slickPrev();
+      }
+
+      //next
+      arrows[1].onclick =()=>{
+        this.subSlickConfig.method.slickNext();
+      }
+
+    });
 
   }
+
+  slideTo(id){
+    angular.forEach(this.slides,function(value){
+      if(value.id === id){
+        value.active = true;
+      }
+    });
+    this.subSlickConfig.method.slickGoTo(id - 1)
+
+  }
+
 
 }

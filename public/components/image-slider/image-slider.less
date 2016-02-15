@@ -1,80 +1,141 @@
-@import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 
 @subSlickHeight: 250px;
 
-body{
-  background-color: #f5f5f5;
+.image-slider-container{
+  opacity: 1;
+  -webkit-transition:opacity .3s;
+  transition: opacity .3s;
 }
-
-.main-slick-container {
-  width: 500px;
-  left:50%;
-  transform: translateX(-50%);
+.image-slider-container.ng-hide-add,
+.image-slider-container.ng-hide-remove{
+  opacity: 0 !important;
   border: solid;
-  position: relative;
-  i{
+}
+
+#carousel-container{
+  img{
+    background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.2));
+    height: 500px;
+    width: 100%;
+  }
+  .slide-link.btn{
+    display: inline-block;
+    margin-right: 4px;
+    height: 48px;
+    line-height: 48px;
+    vertical-align: top;
+    padding: 0 24px;
+    background-color: #B08A43;
+    background: -webkit-linear-gradient(right, #B08A43 50%,#CA9E4D 50%);
+    background: -moz-linear-gradient(right, #B08A43 50%,#CA9E4D 50%);
+    background: -o-linear-gradient(right, #B08A43 50%,#CA9E4D 50%);
+    background: linear-gradient(to left, #B08A43 50%,#CA9E4D 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    -webkit-transition: background-position 100ms ease;
+    -moz-transition: background-position 100ms ease;
+    transition: background-position 100ms ease;
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
     color: white;
-    top: 50%;
-    font-size: 40px;
     position: absolute;
-    cursor: pointer;
-    text-shadow: 0 1px 2px rgba(0,0,0,.6);
-    opacity: 0.8;
-    z-index: 999;
-
-    &:hover{
-      opacity: 1;
-    }
-  }
-  i.glyphicon.glyphicon-chevron-right {
-    left: 100%;
-    transform: translate(-100%,-50%);
-  }
-  i.glyphicon.glyphicon-chevron-left {
-    left:0%;
+    right: 0%;
     top: 50%;
-    transform: translate(0%,-50%);
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
   }
 
-  slick.main-slick {
+  h1.slide-title {
+    left: 0%;
+    position: relative;
+    top: 0;
+    font-size: 68px;
+    font-weight: bold;
+    margin-top: 0;
+    width: 50%;
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    img{
-      position: relative;
-      left:50%;
-      transform: translateX(-50%);
-    }
+  p.slide-description {
+    position: relative;
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    width: 70%;
+  }
+
+  .carousel-caption {
+    left: 15%;
+    right: 15%;
+    height: 40%;
+  }
+
+  .carousel-control {
+    width: 8%;
   }
 }
 
+ol.carousel-indicators {
+  display: none;
+}
 slick.sub-slick {
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
-
   height: @subSlickHeight;
-  .image-card {
-    height: @subSlickHeight;
-    background-color: white;
-    margin:25px;
-    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.26);
-    color: #818181;
-    -webkit-transition: margin 0.3s;
-    transition: margin 0.3s;
-    &:hover{
-      margin-top: 10px;
-    }
-    img{
-      position: relative;
-      left:50%;
-      transform: translateX(-50%);
-      height:(@subSlickHeight*60/100);
-    }
-    .image-card-content {
-      padding-left: 25px;
-    }
-  }
+}
 
+.carousel-inner > .item{
+  -webkit-transition:all 0.3s;
+  transition: all 0.3s;
 }
 
 slick *:focus {outline-color: transparent;}
+
+
+.animate-if.ng-enter, .app-container.ng-leave {
+  -webkit-transition: 0.6s linear all;
+  transition: 0.6s linear all;
+}
+
+.animate-if.ng-enter {
+  opacity: 0;
+}
+
+.animate-if.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.animate-if.ng-leave {
+  opacity:1;
+}
+
+.animate-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+//.loader {
+//  opacity: 1;
+//  position: absolute;
+//  width: 100vw;
+//  height: 100vh;
+//  top: 0;
+//  background-color: white;
+//  img{
+//    position: relative;
+//    left: 50%;
+//    top: 50%;
+//    transform: translateY(-100%);
+//  }
+//}
+//
+//
+//.loader.ng-hide-add,
+//.loader.ng-hide-remove{
+//  opacity: 0;
+//  -webkit-transition:all 0.3s;
+//  transition: all 0.3s;
+//}
+//

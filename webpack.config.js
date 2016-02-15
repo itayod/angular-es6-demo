@@ -18,6 +18,10 @@ module.exports = {
       template: './public/index.html',
       inject: 'body'
     }),
+    //define a global dev environment variable
+    new webpack.DefinePlugin({
+      '__DEV__': false,
+    }),
     new webpack.NoErrorsPlugin()
   ],
   module: {
