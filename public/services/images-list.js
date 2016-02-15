@@ -12,8 +12,19 @@ export default angular.module('imageList',[ngStorage.name])
 
   this.$get = ($localStorage)=>{
 
+    //little hack to a mysterious bug
+    var lcImages = $localStorage.imageList;
+    if($localStorage.imageList) {
+      for (var i = 0; i < lcImages.length; i++) {
+        if (i == 0) {
+          lcImages[i].active = true;
+        }
+        lcImages[i].active = false;
+      }
+    }
+
     //take from local storage in case we did not set the imageList
-    var images = this.imageList || $localStorage.imageList || {};
+    var images = this.imageList || lcImages || {};
 
     return {
       getImageList: function() {
@@ -23,8 +34,9 @@ export default angular.module('imageList',[ngStorage.name])
         //todo do it more elegant with like jquery merge
         for(var i=0; i<data.length; i++){
           images.push(data[i]);
+          console.log(data[i])
+          $localStorage.imageList.push(data[i]);
         }
-        $localStorage.imageList = images;
         return this.getImageList();
       },
       clear: function(){
