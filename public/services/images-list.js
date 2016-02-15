@@ -17,7 +17,6 @@ export default angular.module('imageList',[ngStorage.name])
 
     return {
       getImageList: function() {
-        console.log(images)
         return images;
       },
       addImages: function(data){
@@ -28,8 +27,8 @@ export default angular.module('imageList',[ngStorage.name])
         $localStorage.imageList = images;
         return this.getImageList();
       },
-      clear: function(data){
-        $localStorage.$reset({'imageList':data})
+      clear: function(){
+        $localStorage.$reset()
       }
 
     };

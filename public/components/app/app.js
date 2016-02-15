@@ -58,7 +58,7 @@ class appController{
   }
 
   clearStorage(){
-    this._imageList.clear(mock);
+    this._imageList.clear();
     location.reload();
   }
 
