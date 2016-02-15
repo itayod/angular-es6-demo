@@ -32,7 +32,8 @@ class imageSliderController{
     $timeout(()=>{
 
       //i know its a little hacky but...
-      var arrows = $(".image-slider-container").find("a")
+      var arrows = $(".image-slider-container")[0].getElementsByClassName('carousel-control')
+
       //prev arrow
       arrows[0].onclick = ()=>{
         this.subSlickConfig.method.slickPrev();

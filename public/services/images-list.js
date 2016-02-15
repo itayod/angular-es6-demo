@@ -3,11 +3,10 @@ import ngStorage from "ngstorage";
 export default angular.module('imageList',[ngStorage.name])
 .provider('imageList',function($localStorageProvider) {
 
-  var KEY = 'imageList';
 
   this.setImageList = (imageList)=>{
     this.imageList = imageList;
-    $localStorageProvider.set(KEY,imageList)
+    $localStorageProvider.set('imageList',imageList)
   }
 
 
@@ -18,6 +17,7 @@ export default angular.module('imageList',[ngStorage.name])
 
     return {
       getImageList: function() {
+        console.log(images)
         return images;
       },
       addImages: function(data){
@@ -29,7 +29,7 @@ export default angular.module('imageList',[ngStorage.name])
         return this.getImageList();
       },
       clear: function(data){
-        $localStorage.$reset({KEY:data})
+        $localStorage.$reset({'imageList':data})
       }
 
     };

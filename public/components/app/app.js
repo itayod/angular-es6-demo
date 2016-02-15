@@ -10,8 +10,8 @@ import mock from "./model.json";
 export default angular.module('app',[imageListService.name,imageSlider.name,appForm.name])
   .config(function(imageListProvider){
     if(__DEV__){
-      var images = mock.images || {};
-      imageListProvider.setImageList(mock.images);
+      //var images = mock.images || {};
+      //imageListProvider.setImageList(mock.images);
     }
   })
   .directive('app',function(){

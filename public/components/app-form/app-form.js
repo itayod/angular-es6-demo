@@ -1,4 +1,5 @@
 import filePicker from "./children/file-picker/file-picker";
+import style from "./app-form.less";
 
 export default angular.module('appForm',[filePicker.name])
   .directive('appForm',function(){
@@ -14,16 +15,18 @@ export default angular.module('appForm',[filePicker.name])
 
 class appFormController {
 
-  constructor($q){
+  constructor($scope,$q){
+    this.scope = $scope;
     this._q = $q;
     this.form = {};
     this.form.files =[];
+    this.fileSelected = false;
   }
 
 
   //todo check if file type is image if not give warning.
   fileDidSelect(data){
-
+    this.fileSelected = true;
     var promises = [];
 
     for(var i=0; i<data.length; i++){

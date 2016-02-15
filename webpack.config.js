@@ -20,7 +20,7 @@ module.exports = {
     }),
     //define a global dev environment variable
     new webpack.DefinePlugin({
-      '__DEV__': false,
+      '__DEV__': true,
     }),
     new webpack.NoErrorsPlugin()
   ],
