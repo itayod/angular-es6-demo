@@ -23,7 +23,7 @@ class ImageSliderCardController{
     $element.dblclick(()=>{
       if($scope.image.active){
         this.isEditting = true;
-        $scope.$digest();
+        //$scope.$digest();
       }
     });
 

@@ -42,7 +42,7 @@ class appController{
 
     for(var i=0; i<data.files.length; i++)
     images.push({
-      id: this.slides.length +i,
+      id: this.slides.length +i+1,
       title: data.title,
       link:data.link,
       description: data.description,
