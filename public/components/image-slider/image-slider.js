@@ -8,7 +8,8 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,imageSilderCar
     return{
       scope:{
         slides:"=",
-        working: "="
+        working: "=",
+        imageDidUpadte: '&'
       },
       template:require('./image-slider.html'),
       controller:imageSliderController,
@@ -18,7 +19,8 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,imageSilderCar
 
 class imageSliderController{
   constructor($scope,$timeout){
-    this.slides = $scope.slides;
+    this.scope = $scope;
+    this.slides = this.scope.slides;
 
     this.subSlickConfig = {
       draggable: false,
@@ -49,14 +51,20 @@ class imageSliderController{
   }
 
   slideTo(id){
-    angular.forEach(this.slides,function(value){
+    angular.forEach(this.slides,(value)=>{
       if(value.id === id){
         value.active = true;
+        this.scope.$digest();
       }
     });
+    //todo check if the last id or the first id and call to next or prev
     this.subSlickConfig.method.slickGoTo(id - 1)
-
   }
+
+  imageDidUpdate(data){
+    this.scope.imageDidUpadte({data:data});
+  }
+
 
 
 }

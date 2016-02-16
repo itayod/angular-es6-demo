@@ -13,7 +13,7 @@
     </div>
     <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slick-apply="slickApply" slides-to-show=3 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
         <div ng-repeat="image in slides">
-            <image-silder-card image="image" click="imageSilder.slideTo(image.id)"></image-silder-card>
+            <image-silder-card image="image" image-did-edit="imageSilder.imageDidUpdate(data)" click="imageSilder.slideTo(image.id)"></image-silder-card>
         </div>
     </slick>
 </div>

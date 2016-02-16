@@ -34,9 +34,22 @@ export default angular.module('imageList',[ngStorage.name])
         //todo do it more elegant with like jquery merge
         for(var i=0; i<data.length; i++){
           images.push(data[i]);
-          console.log(data[i])
           $localStorage.imageList.push(data[i]);
         }
+        return this.getImageList();
+      },
+      editImage: function(image){
+
+        for(var i=0; i<images.length; i++){
+          if(image.id === images[i].id){
+
+            $localStorage.imageList[i].title = images[i].title = image.title;
+            $localStorage.imageList[i].description = images[i].description = image.description;
+            return this.getImageList();
+          }
+        }
+
+        console.warn("there is a weird error in the image list");
         return this.getImageList();
       },
       clear: function(){

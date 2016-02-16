@@ -8,10 +8,12 @@ import mock from "./model.json";
 //
 
 export default angular.module('app',[imageListService.name,imageSlider.name,appForm.name])
-  .config(function(imageListProvider){
+  .config(function(imageListProvider,$localStorageProvider){
     if(__DEV__){
-      var images = mock.images || {};
-      imageListProvider.setImageList(mock.images);
+      if(!$localStorageProvider.get('imageList')){
+        var images = mock.images || {};
+        imageListProvider.setImageList(mock.images);
+      }
     }
   })
   .directive('app',function(){
@@ -39,12 +41,13 @@ class appController{
     this.working = true;
     var images = [];
 
+    for(var i=0; i<data.files.length; i++)
     images.push({
-      id: this.slides.length +1,
+      id: this.slides.length +i,
       title: data.title,
       link:data.link,
       description: data.description,
-      src:data.files[0],
+      src:data.files[i],
       active: false
     });
 
@@ -56,6 +59,11 @@ class appController{
     })
 
   }
+
+  onImageUpdated(data){
+    this.slides = this._imageList.editImage(data);
+  }
+
 
   clearStorage(){
     this._imageList.clear();

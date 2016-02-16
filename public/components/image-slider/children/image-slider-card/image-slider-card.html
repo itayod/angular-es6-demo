@@ -1,7 +1,15 @@
-<div class='image-card' ng-click="click({value:image.id})">
+<div class='image-card' >
     <img ng-src="{{image.src}}">
-    <div class="image-card-content">
-        <span>{{image.description}}</span>
-        <h2>{{image.title}}</h2>
+    <div ng-if="!imageSliderCard.isEditting">
+        <div class="image-card-content">
+            <span>{{image.description}}</span>
+            <h2>{{image.title}}</h2>
+        </div>
     </div>
+    <form ng-if="imageSliderCard.isEditting">
+        <div class="image-card-content">
+            <textarea ng-model="imageSliderCard.form.image.description"  ng-init="imageSliderCard.form.image.description = image.description" />
+            <input ng-model="imageSliderCard.form.image.title" ng-init="imageSliderCard.form.image.title = image.title"></input>
+        </div>
+    </form>
 </div>

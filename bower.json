@@ -1,0 +1,26 @@
+{
+  "name": "images-gallery",
+  "description": "a nice image gallery",
+  "main": "index.js",
+  "authors": [
+    "itay oded"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "angular",
+    "webpack",
+    "redux"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-slick-carousel": "^3.1.4"
+  }
+}
