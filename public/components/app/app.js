@@ -2,7 +2,6 @@ import angular from "angular";
 import style from "./app.less";
 import imageListService from "../../services/images-list.js";
 import imageSlider from "../image-slider/image-slider.js";
-//import filePicker from "../file-picker/file-picker.js";
 import appForm from "../app-form/app-form";
 import mock from "./model.json";
 //

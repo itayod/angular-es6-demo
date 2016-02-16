@@ -15,9 +15,11 @@
 #carousel-container{
   img{
     background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.2));
-    height: 500px;
+    height: 650px;
     width: 100%;
+    min-width: 1300px;
   }
+
   .slide-link.btn{
     display: inline-block;
     margin-right: 4px;
@@ -46,27 +48,46 @@
     font-size: 16px;
     font-weight: bold;
     -webkit-font-smoothing: antialiased;
+    width: 210px;
+    text-align: center;
+    &:hover{
+        -webkit-transition: background-position 100ms ease;
+        -moz-transition: background-position 100ms ease;
+        transition: background-position 100ms ease;
+    }
   }
+  .info-container {
+    width: 57%;
 
-  h1.slide-title {
-    left: 0%;
-    position: relative;
-    top: 0;
-    font-size: 68px;
-    font-weight: bold;
-    margin-top: 0;
-    width: 50%;
-    text-align: left;
-    -webkit-font-smoothing: antialiased;
-  }
+    h1.slide-title {
+      left: 0%;
+      position: relative;
+      top: 0;
+      font-size: 68px;
+      font-weight: bold;
+      margin-top: 0;
+      width: 50%;
+      text-align: left;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  p.slide-description {
-    position: relative;
-    text-align: left;
-    font-size: 22px;
-    font-weight: bold;
-    -webkit-font-smoothing: antialiased;
-    width: 70%;
+    hr {
+      display: block;
+      width: 20%;
+      height: 6px;
+      margin: 30px 0;
+      background: #B08A43;
+      border: none;
+    }
+
+    p.slide-description {
+      position: relative;
+      text-align: left;
+      font-size: 22px;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      width: 70%;
+    }
   }
 
   .carousel-caption {

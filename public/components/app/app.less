@@ -4,17 +4,45 @@ body{
   background-color: #f5f5f5;
 }
 
-.app-image-slider-container {
-  border: solid #C1BEBE 2px;
-  height: 950px;
-  padding: 30px;
+header.app-header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #d2d2d2;
+  z-index: 9999;
+  padding: 15px;
+  background-color: black;
+  opacity: .95;
+  height: 58px;
+  button{
+    cursor: pointer;
+    label {
+      cursor: pointer;
+      word-spacing: -9px;
+    }
+  }
 }
+
+.app-image-slider-container {
+  height: 950px;
+}
+
 .app-app-form-container {
-  border: solid #C1BEBE 2px;
-  border-right: none;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  position: absolute;
+  z-index: 9999;
+  overflow: hidden;
   height: 950px;
   padding: 50px;
+  width: 400px;
+  background-color: rgba(221, 221, 221, 0.85);
+  top: 58px;
 }
+.app-app-form-container.ng-hide{
+  width: 0px;
+}
+
 .app-container {
   left: 50%;
   transform: translate(-46%);

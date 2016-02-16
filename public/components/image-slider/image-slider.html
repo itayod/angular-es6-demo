@@ -4,14 +4,20 @@
             <uib-slide ng-repeat="slide in imageSilder.slides" active="slide.active" index="$index">
                 <img ng-src="{{slide.src}}" style="margin:auto;">
                 <div class="carousel-caption">
-                    <h1 class="slide-title">{{slide.title}}</h1>
-                    <a class="slide-link btn" href="{{slide.link}}" target="_blank">{{slide.link}}</a>
-                    <p class="slide-description" >{{slide.description}}</p>
+                    <div class="info-container">
+                        <h1 class="slide-title">{{slide.title}}</h1>
+                        <hr>
+                        <p class="slide-description" >{{slide.description}}</p>
+                    </div>
+                    <a class="slide-link btn" href="{{slide.link}}" target="_blank">
+                        <span class="btn left">{{slide.link}}</span>
+                        <span class="btn right"></span>
+                    </a>
                 </div>
             </uib-slide>
         </uib-carousel>
     </div>
-    <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slick-apply="slickApply" slides-to-show=3 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
+    <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slick-apply="slickApply" slides-to-show=5 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
         <div ng-repeat="image in slides">
             <image-silder-card image="image" image-did-edit="imageSilder.imageDidUpdate(data)" click="imageSilder.slideTo(image.id)"></image-silder-card>
         </div>
