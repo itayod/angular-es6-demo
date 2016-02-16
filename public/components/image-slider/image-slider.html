@@ -11,11 +11,16 @@
                     </div>
                     <a class="slide-link btn" href="{{slide.link}}" target="_blank">
                         <span class="btn left">{{slide.link}}</span>
-                        <span class="btn right"></span>
+                        <span class="btn right glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
             </uib-slide>
         </uib-carousel>
+        <div class="pointer">
+            <div class="pointer-block pull-left"></div>
+            <div class="pointer-arrow"></div>
+            <div class="pointer-block pull-right"></div>
+        </div>
     </div>
     <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slick-apply="slickApply" slides-to-show=5 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
         <div ng-repeat="image in slides">

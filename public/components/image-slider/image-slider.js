@@ -27,6 +27,8 @@ class imageSliderController{
       method:{},
     };
 
+
+
     this.loaderSrc = "/assets/film_loader_sq.gif"
     var loader = new Image();
     loader.src = $scope.loaderSrc;

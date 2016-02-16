@@ -20,36 +20,58 @@
     min-width: 1300px;
   }
 
+  a.carousel-control{
+    background-image: none;
+      opacity: 1!important;
+    span.glyphicon{
+      font-size: 38px;
+    }
+  }
+
   .slide-link.btn{
     display: inline-block;
     margin-right: 4px;
-    height: 48px;
     line-height: 48px;
     vertical-align: top;
-    padding: 0 24px;
-    background-color: #B08A43;
-    background: -webkit-linear-gradient(right, #B08A43 50%,#CA9E4D 50%);
-    background: -moz-linear-gradient(right, #B08A43 50%,#CA9E4D 50%);
-    background: -o-linear-gradient(right, #B08A43 50%,#CA9E4D 50%);
-    background: linear-gradient(to left, #B08A43 50%,#CA9E4D 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
-    -webkit-transition: background-position 100ms ease;
-    -moz-transition: background-position 100ms ease;
-    transition: background-position 100ms ease;
-    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
-    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
-    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
-    color: white;
     position: absolute;
     right: 0%;
+    width: 300px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 16px;
-    font-weight: bold;
-    -webkit-font-smoothing: antialiased;
-    width: 210px;
-    text-align: center;
+      &:hover *{
+        background: -webkit-linear-gradient(right, #B08A43 0%,#CA9E4D 0%);
+        background: -moz-linear-gradient(right, #B08A43 0%,#CA9E4D 0%);
+        background: -o-linear-gradient(right, #B08A43 0%,#CA9E4D 0%);
+        background: linear-gradient(to left, #B08A43 0%,#CA9E4D 0%);
+      }
+    span{
+      -webkit-transition: all 100ms ease;
+      -moz-transition: all 100ms ease;
+      transition: all 100ms ease;
+      -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+      -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+      box-shadow: 0 2px 3px 0 rgba(0,0,0,0.13);
+      text-align: center;
+      padding: 0;
+      height: 50px;
+      line-height: 50px;
+      background: -webkit-linear-gradient(right, #B08A43 100%,#CA9E4D 100%);
+      background: -moz-linear-gradient(right, #B08A43 100%,#CA9E4D 100%);
+      background: -o-linear-gradient(right, #B08A43 100%,#CA9E4D 100%);
+      background: linear-gradient(to left, #B08A43 100%,#CA9E4D 100%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+      width: 70%;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    span.right{
+      width: 20%;
+    }
+
     &:hover{
         -webkit-transition: background-position 100ms ease;
         -moz-transition: background-position 100ms ease;
@@ -99,6 +121,38 @@
   .carousel-control {
     width: 8%;
   }
+
+  .pointer {
+    position: absolute;
+    width: 100%;
+    height: 25px;
+    transform: translateY(-100%);
+    .pointer-block{
+      position: relative;
+      width: 50%;
+      background-color: #f5f5f5;
+      height: 100%;
+      display: inline-block;
+    }
+    .pointer-block.pull-left{
+      margin-left: -19px;
+    }
+    .pointer-block.pull-right{
+      margin-right: -19px;
+    }
+    .pointer-arrow{
+      width: 0px;
+      height: 25px;
+      border-left: 19px solid #f5f5f5;
+      border-right: 19px solid #f5f5f5;
+      border-top: 25px solid transparent;
+      position: absolute;
+      display: inline;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
 }
 
 ol.carousel-indicators {
