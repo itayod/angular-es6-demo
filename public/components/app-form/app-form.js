@@ -43,6 +43,11 @@ class appFormController {
 
   }
 
+  onFormSubmit(data){
+    //this.form = {};
+    this.scope.onFormSubmit(data)
+  }
+
   _renderImage(image){
     var deffered = this._q.defer();
 

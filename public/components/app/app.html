@@ -1,12 +1,12 @@
 <header class="app-header">
-    <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="openAppForm=!openAppForm">
+    <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="app.openAppForm=!app.openAppForm">
         <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true">
         <label>add image</label>
         </label>
     </button>
 
 </header>
-<div class="app-app-form-container" ng-show="openAppForm">
+<div class="app-app-form-container" ng-show="app.openAppForm">
     <app-form on-form-submit="app.formDidSubmit(data)"></app-form>
     <br/>
     <button type="button" class="btn btn-danger" ng-if="app.dev" ng-click="app.clearStorage()">clear storage</button>

@@ -1,7 +1,7 @@
 <div class="image-slider-container" ng-hide="working">
     <div id="carousel-container">
         <uib-carousel>
-            <uib-slide ng-repeat="slide in imageSilder.slides" active="slide.active" index="$index">
+            <uib-slide ng-repeat="slide in imageSilder.slides track by slide.id" active="slide.active" index="$index">
                 <img ng-src="{{slide.src}}" style="margin:auto;">
                 <div class="carousel-caption">
                     <div class="info-container">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slick-apply="slickApply" slides-to-show=5 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
-        <div ng-repeat="image in slides">
+        <div ng-repeat="image in slides track by image.id">
             <image-silder-card image="image" image-did-edit="imageSilder.imageDidUpdate(data)" click="imageSilder.slideTo(image.id)"></image-silder-card>
         </div>
     </slick>

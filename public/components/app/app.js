@@ -39,6 +39,7 @@ class appController{
 
     this.working = true;
     var images = [];
+    this.openAppForm = false;
 
     for(var i=0; i<data.files.length; i++)
     images.push({
