@@ -7,7 +7,8 @@ export default angular.module('filePicker',[])
       controller:filePickerController,
       controllerAs:'filePicker',
       scope:{
-        onFileSelect:'&'
+        onFileSelect:'&',
+        required: '@'
       }
     }
   });

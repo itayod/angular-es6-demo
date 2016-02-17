@@ -2,35 +2,49 @@
   "images":[
     {
     "id": 1,
-    "title": "kenny",
+    "title": "title",
     "link":"http://ynet.co.il",
     "description":"this is an example of a really long description for the image",
-    "src": "/assets/kenny.jpg"
+    "src": "/assets/image1.jpg"
     },{
     "id": 2,
-    "title": "butters",
+    "title": "title",
     "link":"http://ynet.co.il",
     "description":"this is an example of a really long description for the image",
-    "src": "/assets/butters.png"
+    "src": "/assets/image2.jpg"
     },{
     "id": 3,
-    "title": "cartman",
+    "title": "title",
     "link":"http://ynet.co.il",
     "description":"this is an example of a really long description for the image",
-    "src": "/assets/cartman.jpg"
+    "src": "/assets/image3.jpg"
     },{
     "id": 4,
-    "title": "stan",
+    "title": "title",
     "link":"http://ynet.co.il",
     "description":"this is an example of a really long description for the image",
-    "src": "/assets/stan.jpg"
+    "src": "/assets/image4.jpg"
     },
     {
     "id": 5,
-    "title": "kyle",
+    "title": "title",
     "link":"http://ynet.co.il",
     "description":"this is an example of a really long description for the image",
-    "src": "/assets/kyle.png"
+    "src": "/assets/image5.jpg"
+    },
+    {
+    "id": 6,
+    "title": "title",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
+    "src": "/assets/image6.jpg"
+    },
+    {
+    "id": 7,
+    "title": "title",
+    "link":"http://ynet.co.il",
+    "description":"this is an example of a really long description for the image",
+    "src": "/assets/image7.jpg"
     }
   ]
 }

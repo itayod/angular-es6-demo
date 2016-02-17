@@ -1,11 +1,11 @@
-<form name="form" novalidate ng-submit="onFormSubmit({data:appForm.form})">
+<form name="form" ng-submit="onFormSubmit({data:appForm.form})">
     <fieldset class="form-group">
 
         <label for="InputImageTitle">Title</label>
         <div ng-show="form.$submitted || form.ImageTitle.$touched">
             <span class="alert alert-danger" ng-show="form.ImageTitle.$error.required">Please provide a title.</span>
         </div>
-        <input type="text" class="form-control" id="InputImageTitle" name="ImageTitle" placeholder="Enter title" required="" ng-model="appForm.form.title">
+        <input type="text" class="form-control" id="InputImageTitle" name="ImageTitle" placeholder="Enter title" required="" nonvalidate ng-model="appForm.form.title">
 
     </fieldset>
     <fieldset class="form-group">
@@ -15,7 +15,7 @@
             <span class="alert alert-danger" ng-show="form.Link.$error.required">Please provide a link.</span>
             <span class="alert alert-danger" ng-show="form.Link.$error.url">This link is not a valid url.</span>
         </div>
-        <input type="url" class="form-control" id="InputLink" name="Link" placeholder="Enter Url" required="" ng-model="appForm.form.link">
+        <input type="url" class="form-control" id="InputLink" name="Link" placeholder="Enter Url" nonvalidate required="" ng-model="appForm.form.link">
 
     </fieldset>
     <fieldset>
@@ -28,7 +28,8 @@
         <div ng-show="form.$submitted">
             <span class="alert alert-danger" ng-show="!appForm.fileSelected">Please select a file.</span>
         </div>
-        <file-picker on-file-select="appForm.fileDidSelect(data)"></file-picker>
-        <button ng-disabled="form.$invalid" type="submit" class="btn btn-primary" >Submit</button>
+        <file-picker on-file-select="appForm.fileDidSelect(data)" required="true"></file-picker>
+        <br />
+        <button type="submit" class="btn btn-primary" >Submit</button>
     </fieldset>
 </form>
