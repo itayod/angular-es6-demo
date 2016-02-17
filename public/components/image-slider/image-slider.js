@@ -11,7 +11,8 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel
       scope:{
         slides:"=",
         working: "=",
-        imageDidUpadte: '&'
+        imageDidUpadte: '&',
+        imageDidRemove: '&'
       },
       template:require('./image-slider.html'),
       controller:imageSliderController,
@@ -21,16 +22,16 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel
 
 class imageSliderController{
   constructor($scope,$timeout){
-    this.scope = $scope;
-    this.slides = this.scope.slides;
-
+    this._scope = $scope;
+    this._timeout = $timeout
+    this.slides = this._scope.slides;
     this.subSlickConfig = {
       draggable: false,
       method:{},
     };
 
 
-    $timeout(()=>{
+    this._timeout(()=>{
 
       //i know its a little hacky but...
       var arrows = $(".image-slider-container")[0].getElementsByClassName('carousel-control')
@@ -50,21 +51,32 @@ class imageSliderController{
   }
 
   slideTo(id){
-    console.log(id);
+
     angular.forEach(this.slides,(value)=>{
       if(value.id === id){
         value.active = true;
-        this.scope.$digest();
+        this._scope.$digest();
       }
     });
-    //todo check if the last id or the first id and call to next or prev
+
+    //todo function that check if next or prev should be called here
     this.subSlickConfig.method.slickGoTo(id - 1)
   }
 
-  imageDidUpdate(data){
-    this.scope.imageDidUpadte({data:data});
+  onImageUpdate(data){
+    this._scope.imageDidUpadte({data:data});
   }
 
-
+  onImageRemove(data){
+    if(data.active === true){
+      this._scope.working;
+      this.slideTo(data,true);
+    }
+    this.subSlickIsWorking = true;
+    this._timeout(()=>{
+      this._scope.imageDidRemove({data:data.id});
+      this.subSlickIsWorking = false;
+    })
+  }
 
 }

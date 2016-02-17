@@ -1,4 +1,7 @@
 <div class='image-card' >
+    <div class='close-btn alert alert-error'  ng-click="imageSliderCard.imageDidRemove($event,{data:image})">
+        <button type='button' class='close' data-dismiss='alert'>×</button>
+    </div>
     <img ng-src="{{image.src}}">
     <div ng-if="!imageSliderCard.isEditting">
         <div class="image-card-content">
@@ -14,3 +17,4 @@
         </div>
     </form>
 </div>
+

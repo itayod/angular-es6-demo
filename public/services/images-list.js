@@ -1,6 +1,7 @@
 import ngStorage from "ngstorage";
 
 export default angular.module('imageList',[ngStorage.name])
+//todo maybe refactor to just service?
 .provider('imageList',function($localStorageProvider) {
 
 
@@ -12,19 +13,35 @@ export default angular.module('imageList',[ngStorage.name])
 
   this.$get = ($localStorage)=>{
 
-    //little hack to a mysterious bug
-    var lcImages = $localStorage.imageList;
+    //little hack for a mysterious bug
+    var lcImages = false;
     if($localStorage.imageList) {
-      for (var i = 0; i < lcImages.length; i++) {
-        if (i == 0) {
-          lcImages[i].active = true;
+      lcImages = updateImagesActive($localStorage.imageList,0)
+    }
+
+    function updateImagesActive(arr,index){
+      for (var i = 0; i < arr.length; i++) {
+        if (i == index) {
+          arr[i].active = true;
         }
-        lcImages[i].active = false;
+        arr[i].active = false;
+      }
+      return arr;
+    }
+
+
+    function updateImagesId(){
+      for (var i = 0; i < images.length; i++) {
+        images[i].id = i+1;
       }
     }
 
+
+
     //take from local storage in case we did not set the imageList
     var images = this.imageList || lcImages || {};
+
+
 
     return {
       getImageList: function() {
@@ -50,6 +67,16 @@ export default angular.module('imageList',[ngStorage.name])
         }
 
         console.warn("there is a weird error in the image list");
+        return this.getImageList();
+      },
+      removeImage: function(imageId,imageActive){
+        images.splice(imageId-1, 1);
+        //update the id after we remove image obj from the list
+        updateImagesId();
+        if(imageActive){
+          images = updateImagesActive(imageId-1);
+        }
+        $localStorage.imageList = images;
         return this.getImageList();
       },
       clear: function(){

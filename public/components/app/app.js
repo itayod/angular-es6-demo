@@ -25,12 +25,13 @@ export default angular.module('app',[imageListService.name,imageSlider.name,appF
 
 class appController{
 
-  constructor(imageList,$q,$scope){
+  constructor(imageList,$q,$scope,$timeout){
     this.slides = imageList.getImageList();
     this.working = false;
     this._imageList = imageList;
     this._scope = $scope;
     this._q = $q;
+    this._timeout = $timeout;
     this.dev =  __DEV__ ? true : false;
 
   }
@@ -60,8 +61,14 @@ class appController{
 
   }
 
-  onImageUpdated(data){
+  onImageUpdate(data){
     this.slides = this._imageList.editImage(data);
+  }
+
+  onImageRemove(data){
+
+      this.slides = this._imageList.removeImage(data);
+
   }
 
 

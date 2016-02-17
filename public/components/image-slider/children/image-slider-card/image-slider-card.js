@@ -7,7 +7,8 @@ export default angular.module('imageSliderCard',[])
       scope:{
         image: '=',
         imageDidSelect: '&',
-        imageDidEdit: '&'
+        imageDidEdit: '&',
+        imageDidRemove: '&'
       },
       controller: ImageSliderCardController,
       controllerAs: 'imageSliderCard'
@@ -19,11 +20,12 @@ class ImageSliderCardController{
 
   constructor($scope,$element){
     this.form = {};
+    this.scope = $scope;
     this.isEditting = false;
     $element.dblclick(()=>{
-      if($scope.image.active){
+      if(this.scope.image.active){
         this.isEditting = true;
-        $scope.$digest();
+        this.scope.$digest();
       }
     });
 
@@ -31,15 +33,15 @@ class ImageSliderCardController{
       if(this.isEditting === true){
         this.isEditting = false;
         if(this.form.$valid){
-          this.imageEdited($scope);
+          this.imageEdited();
         }
       }
     })
 
     $element.click(()=>{
       setTimeout(()=>{
-        if(this.isEditting === false && !$scope.image.active){
-          $scope.imageDidSelect({value:$scope.image.id});
+        if(this.isEditting === false && !this.scope.image.active){
+          this.scope.imageDidSelect({value:this.scope.image.id});
         }
       },50)
     })
@@ -47,18 +49,21 @@ class ImageSliderCardController{
     $scope.$watch('image.active',(n,o)=>{
       if(o === true && this.isEditting === true){
         this.isEditting = false;
-        this.emitImageEdited($scope);
+        this.imageEdited();
       }
     })
 
   }
 
-  imageEdited(scope){
-    this.form.image.id = scope.image.id;
-    scope.imageDidEdit({data:this.form.image});
+  imageEdited(){
+    this.form.image.id = this.scope.image.id;
+    this.scope.imageDidEdit({data:this.form.image});
   }
 
-
+  imageDidRemove(e,data){
+    e.stopPropagation();
+    this.scope.imageDidRemove(data)
+  }
 
 
 }
