@@ -6,10 +6,11 @@
             <h2>{{image.title}}</h2>
         </div>
     </div>
-    <form ng-if="imageSliderCard.isEditting">
+    <form name="imageSliderCard.form" ng-if="imageSliderCard.isEditting">
         <div class="image-card-content">
-            <textarea ng-model="imageSliderCard.form.image.description"  ng-init="imageSliderCard.form.image.description = image.description" />
-            <input ng-model="imageSliderCard.form.image.title" ng-init="imageSliderCard.form.image.title = image.title"></input>
+            <textarea class="image-description form-control" ng-model="imageSliderCard.form.image.description"  ng-init="imageSliderCard.form.image.description = image.description" />
+            <span class="image-title-alert" ng-show="!imageSliderCard.form.image.title">Please provide a title.</span>
+            <input class="image-title form-control" ng-model="imageSliderCard.form.image.title" required ng-init="imageSliderCard.form.image.title = image.title"></input>
         </div>
     </form>
 </div>

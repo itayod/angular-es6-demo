@@ -23,14 +23,16 @@ class ImageSliderCardController{
     $element.dblclick(()=>{
       if($scope.image.active){
         this.isEditting = true;
-        //$scope.$digest();
+        $scope.$digest();
       }
     });
 
     $element.focusout(()=>{
       if(this.isEditting === true){
         this.isEditting = false;
-        this.emitImageEdited($scope);
+        if(this.form.$valid){
+          this.emitImageEdited($scope);
+        }
       }
     })
 

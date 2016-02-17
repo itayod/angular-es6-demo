@@ -1,5 +1,5 @@
 .image-card {
-  height: 250px;
+  height: 330px;
   background-color: white;
   margin: 15px;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
@@ -16,14 +16,24 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    height: (250px*60/100);
-    width: 80%;
+    width: 100%;
+    height: 180px;
   }
   h2 {
     color: black;
     font-weight: bold;
+    text-transform: uppercase;
   }
   .image-card-content {
-    padding-left: 25px;
+    padding: 15px 20px;
+    textarea.form-control.image-description {
+      margin-bottom: 10px;
+    }
+    .image-title-alert{
+      color: #a94442;
+      font-size: 12px;
+      padding-left: 5px;
+      margin-bottom: 2px;
+    }
   }
 }
