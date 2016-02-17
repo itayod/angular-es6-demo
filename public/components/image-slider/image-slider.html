@@ -2,32 +2,14 @@
     <div id="carousel-container">
         <uib-carousel>
             <uib-slide ng-repeat="slide in imageSilder.slides track by slide.id" active="slide.active" index="$index">
-                <img ng-src="{{slide.src}}" style="margin:auto;">
-                <div class="carousel-caption">
-                    <div class="info-container">
-                        <h1 class="slide-title">{{slide.title}}</h1>
-                        <hr>
-                        <p class="slide-description" >{{slide.description}}</p>
-                    </div>
-                    <a class="slide-link btn" href="{{slide.link}}" target="_blank">
-                        <span class="btn left">{{slide.link}}</span>
-                        <span class="btn right"> <i class="right-arrow"></i> </span>
-                    </a>
-                </div>
+                <image-slider-carousel-inner slide="slide"></image-slider-carousel-inner>
             </uib-slide>
         </uib-carousel>
-        <div class="pointer">
-            <div class="pointer-block pull-left"></div>
-            <div class="pointer-arrow"></div>
-            <div class="pointer-block pull-right"></div>
-        </div>
+        <image-slider-pointer></image-slider-pointer>
     </div>
-    <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slick-apply="slickApply" slides-to-show=5 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
+    <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slides-to-show=5 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
         <div ng-repeat="image in slides track by image.id">
-            <image-silder-card image="image" image-did-edit="imageSilder.imageDidUpdate(data)" click="imageSilder.slideTo(image.id)"></image-silder-card>
+            <image-silder-card image="image" image-did-edit="imageSilder.imageDidUpdate(data)" image-did-select="imageSilder.slideTo(image.id)"></image-silder-card>
         </div>
     </slick>
 </div>
-<!--<div class="loader" ng-hide="!working">-->
-    <!--<img ng-src="{{imageSilder.loaderSrc}}" />-->
-<!--</div>-->

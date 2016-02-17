@@ -1,31 +1,9 @@
-
-@subSlickHeight: 250px;
-
-.image-slider-container{
-  opacity: 1;
-  -webkit-transition:opacity .3s;
-  transition: opacity .3s;
-}
-.image-slider-container.ng-hide-add,
-.image-slider-container.ng-hide-remove{
-  opacity: 0 !important;
-  border: solid;
-}
-
-#carousel-container{
+.image-slider-carousel-inner{
   img{
     background: -webkit-linear-gradient(transparent, rgba(0,0,0,0.2));
     height: 650px;
     width: 100%;
     min-width: 1300px;
-  }
-
-  a.carousel-control{
-    background-image: none;
-      opacity: 1!important;
-    span.glyphicon{
-      font-size: 38px;
-    }
   }
 
   a.slide-link.btn{
@@ -39,9 +17,9 @@
     width: 300px;
     top: 50%;
     transform: translateY(-50%);
-      &:hover *{
-        background-position: 0%;
-      }
+    &:hover *{
+      background-position: 0%;
+    }
     span{
       -webkit-transition: background-position 100ms ease;
       -moz-transition: background-position 100ms ease;
@@ -85,9 +63,9 @@
 
     &:hover span{
 
-        -webkit-transition: background-position 100ms ease;
-        -moz-transition: background-position 100ms ease;
-        transition: background-position 100ms ease;
+      -webkit-transition: background-position 100ms ease;
+      -moz-transition: background-position 100ms ease;
+      transition: background-position 100ms ease;
     }
     &:hover i.right-arrow{
       animation: circlearrow 500ms;
@@ -141,74 +119,8 @@
     width: 8%;
   }
 
-  .pointer {
-    position: absolute;
-    width: 100%;
-    height: 25px;
-    transform: translateY(-100%);
-    .pointer-block{
-      position: relative;
-      width: 50%;
-      background-color: #f5f5f5;
-      height: 100%;
-      display: inline-block;
-    }
-    .pointer-block.pull-left{
-      margin-left: -19px;
-    }
-    .pointer-block.pull-right{
-      margin-right: -19px;
-    }
-    .pointer-arrow{
-      width: 0px;
-      height: 25px;
-      border-left: 19px solid #f5f5f5;
-      border-right: 19px solid #f5f5f5;
-      border-top: 25px solid transparent;
-      position: absolute;
-      display: inline;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
 }
 
-ol.carousel-indicators {
-  display: none;
-}
-slick.sub-slick {
-  height: @subSlickHeight;
-}
-
-.carousel-inner > .item{
-  -webkit-transition:all 0.3s;
-  transition: all 0.3s;
-}
-
-slick *:focus {outline-color: transparent;}
-
-
-.animate-if.ng-enter, .app-container.ng-leave {
-  -webkit-transition: 0.6s linear all;
-  transition: 0.6s linear all;
-}
-
-.animate-if.ng-enter {
-  opacity: 0;
-}
-
-.animate-if.ng-enter.ng-enter-active {
-  opacity:1;
-}
-
-.animate-if.ng-leave {
-  opacity:1;
-}
-
-.animate-if.ng-leave.ng-leave-active {
-  opacity:0;
-}
 
 @keyframes circlearrow {
   0% {
@@ -236,19 +148,19 @@ slick *:focus {outline-color: transparent;}
    80% {
      background-position-x: 0;
    }
-}@-webkit-keyframes circlearrow {
-   0% {
-     background-position-x: 0px;
-   }
-   60% {
-     background-position-x: 55px;
-     z-index: -1;
-   }
-   60.005% {
-     background-position-x: -65px;
-     z-index: 1;
-   }
-   80% {
-     background-position-x: 0px;
-   }
-}
+ }@-webkit-keyframes circlearrow {
+    0% {
+      background-position-x: 0px;
+    }
+    60% {
+      background-position-x: 55px;
+      z-index: -1;
+    }
+    60.005% {
+      background-position-x: -65px;
+      z-index: 1;
+    }
+    80% {
+      background-position-x: 0px;
+    }
+  }

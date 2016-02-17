@@ -1,9 +1,11 @@
 import uiBotstrap from "angular-ui-bootstrap";
 import ngAnimate from "angular-animate";
-import stlye from "./image-slider.less";
+import stlye from "./image-slider.scss";
 import imageSilderCard from "./children/image-slider-card/image-slider-card.js";
+import imageSilderPointer from "./children/image-slider-pointer/image-slider-pointer.js";
+import imageSilderCarouselInner from "./children/image-slider-carousel-inner/image-slider-carousel-inner.js";
 
-export default angular.module('imageSlider',[ngAnimate,uiBotstrap,imageSilderCard.name,'slickCarousel'])
+export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel',imageSilderCard.name,imageSilderPointer.name,imageSilderCarouselInner.name])
   .directive('imageSilder',function(){
     return{
       scope:{
@@ -28,11 +30,6 @@ class imageSliderController{
     };
 
 
-
-    this.loaderSrc = "/assets/film_loader_sq.gif"
-    var loader = new Image();
-    loader.src = $scope.loaderSrc;
-
     $timeout(()=>{
 
       //i know its a little hacky but...
@@ -53,6 +50,7 @@ class imageSliderController{
   }
 
   slideTo(id){
+    console.log(id);
     angular.forEach(this.slides,(value)=>{
       if(value.id === id){
         value.active = true;

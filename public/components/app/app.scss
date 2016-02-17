@@ -1,6 +1,6 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
 
-@headerHeight: 58px;
+$headerHeight: 58px;
 
 body{
   background-color: #f5f5f5;
@@ -15,7 +15,7 @@ header.app-header{
   padding: 15px;
   background-color: rgb(34, 34, 34);
   opacity: .95;
-  height: @headerHeight;
+  height: $headerHeight;
   button{
     cursor: pointer;
     label {
@@ -27,7 +27,7 @@ header.app-header{
 
 .app-image-slider-container {
   height: 950px;
-  margin-top: @headerHeight;
+  margin-top: $headerHeight;
 }
 
 .app-app-form-container {
@@ -40,7 +40,7 @@ header.app-header{
   padding: 50px;
   width: 400px;
   background-color: rgba(221, 221, 221, 0.85);
-  top: @headerHeight;
+  top: $headerHeight;
 }
 .app-app-form-container.ng-hide{
   width: 0px;

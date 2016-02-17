@@ -40,7 +40,7 @@ module.exports = {
       {test: /\.json$/, exclude: /node_modules/, loader: 'json'},
 
       //use less loader for every css and less file
-      {test: /\.(less|css)$/, exclude: /node_modules/, loader: "style!css!less"},
+      {test: /\.scss$/, exclude: /node_modules/, loader: "style!css!sass"},
 
       { test: /\.(ttf|eot|svg|otf)$/, loader: "file" },
 

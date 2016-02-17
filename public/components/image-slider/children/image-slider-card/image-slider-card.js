@@ -1,4 +1,4 @@
-import style from "./image-slide-card.less";
+import style from "./image-slider-card.scss";
 
 export default angular.module('imageSliderCard',[])
   .directive('imageSilderCard',function(){
@@ -6,7 +6,7 @@ export default angular.module('imageSliderCard',[])
       template: require("./image-slider-card.html"),
       scope:{
         image: '=',
-        click: '&',
+        imageDidSelect: '&',
         imageDidEdit: '&'
       },
       controller: ImageSliderCardController,
@@ -31,7 +31,7 @@ class ImageSliderCardController{
       if(this.isEditting === true){
         this.isEditting = false;
         if(this.form.$valid){
-          this.emitImageEdited($scope);
+          this.imageEdited($scope);
         }
       }
     })
@@ -39,7 +39,7 @@ class ImageSliderCardController{
     $element.click(()=>{
       setTimeout(()=>{
         if(this.isEditting === false && !$scope.image.active){
-          $scope.click({value:$scope.image.id});
+          $scope.imageDidSelect({value:$scope.image.id});
         }
       },50)
     })
@@ -53,7 +53,7 @@ class ImageSliderCardController{
 
   }
 
-  emitImageEdited(scope){
+  imageEdited(scope){
     this.form.image.id = scope.image.id;
     scope.imageDidEdit({data:this.form.image});
   }

@@ -1,5 +1,5 @@
 import angular from "angular";
-import style from "./app.less";
+import style from "./app.scss";
 import imageListService from "../../services/images-list.js";
 import imageSlider from "../image-slider/image-slider.js";
 import appForm from "../app-form/app-form";

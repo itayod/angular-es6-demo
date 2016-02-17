@@ -1,5 +1,5 @@
 import filePicker from "./children/file-picker/file-picker";
-import style from "./app-form.less";
+import style from "./app-form.scss";
 
 export default angular.module('appForm',[filePicker.name])
   .directive('appForm',function(){
