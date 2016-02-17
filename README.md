@@ -21,7 +21,7 @@
 ## Installation
 ```
 $ git clone https://github.com/itayod/angular-webpack-redux.git
-$ cd angular-webpack-redux
+$ cd linnovateTest
 $ npm install
 $ bower install
 ```
@@ -44,4 +44,4 @@ Open your browser at [http://localhost:8080](http://localhost:8080).
 ## TODO
 1. [ ] combine the 2 different carousels to only one carousel.
 2. [ ] add tests
-3. [ ] refacrot the less files and add some variables
+3. [ ] refactor to scss
