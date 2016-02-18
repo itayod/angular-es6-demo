@@ -8,7 +8,7 @@
         <image-slider-pointer></image-slider-pointer>
     </div>
 
-    <div ng-if="!imageSilder.subSlickIsWorking">
+    <div class="sub-slick animate-if" ng-if="!imageSilder.subSlickIsWorking">
         <slick class="sub-slick animate-if"  init-onload="false" settings="imageSilder.subSlickConfig" slides-to-show=5 slides-to-scroll=1 center-mode="true" ng-if="!working" arrows="false">
             <div ng-repeat="image in slides track by image.id">
                 <image-silder-card image="image" image-did-remove="imageSilder.onImageRemove(data)" image-did-edit="imageSilder.onImageUpdate(data)" image-did-select="imageSilder.slideTo(image.id)"></image-silder-card>

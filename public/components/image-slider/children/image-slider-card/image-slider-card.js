@@ -18,16 +18,10 @@ export default angular.module('imageSliderCard',[])
 
 class ImageSliderCardController{
 
-  constructor($scope,$element){
+  constructor($scope,$element,$timeout){
     this.form = {};
     this.scope = $scope;
     this.isEditting = false;
-    $element.dblclick(()=>{
-      if(this.scope.image.active){
-        this.isEditting = true;
-        this.scope.$digest();
-      }
-    });
 
     $element.focusout(()=>{
       if(this.isEditting === true){
@@ -53,6 +47,12 @@ class ImageSliderCardController{
       }
     })
 
+  }
+
+  editImage(){
+    if(this.scope.image.active){
+      this.isEditting = !this.isEditting;
+    }
   }
 
   imageEdited(){

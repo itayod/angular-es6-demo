@@ -1,9 +1,10 @@
-<div class='image-card' >
-    <div class='close-btn alert alert-error'  ng-click="imageSliderCard.imageDidRemove($event,{data:image})">
-        <button type='button' class='close' data-dismiss='alert'>×</button>
+<div class='image-card' ng-dblclick="imageSliderCard.editImage()">
+    <div class='panel-btn alert alert-error' >
+        <button type='button' class='close' ng-if="!image.active"  ng-click="imageSliderCard.imageDidRemove($event,{data:image})">×</button>
+        <i class='edit-btn glyphicon glyphicon-edit pull-right' ng-if="image.active" ng-click="imageSliderCard.editImage(true)"></i>
     </div>
     <img ng-src="{{image.src}}">
-    <div ng-if="!imageSliderCard.isEditting">
+    <div  ng-if="!imageSliderCard.isEditting">
         <div class="image-card-content">
             <span>{{image.description}}</span>
             <h2>{{image.title}}</h2>

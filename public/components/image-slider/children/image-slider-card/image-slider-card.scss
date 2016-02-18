@@ -13,8 +13,20 @@
     margin-top: 10px;
   }
 
-  .close-btn.alert.alert-error {
+  .panel-btn.alert.alert-error {
     padding: 5px;
+
+    .edit-btn{
+      opacity: .3;
+      &:hover{
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        filter: alpha(opacity=50);
+        opacity: .5;
+      }
+    }
+
   }
 
   img {
