@@ -21,15 +21,27 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel
   })
 
 class imageSliderController{
-  constructor($scope,$timeout){
+  constructor($scope,$timeout,$interval){
+
     this._scope = $scope;
-    this._timeout = $timeout
+    this._timeout = $timeout;
+    this._interval = $interval;
     this.slides = this._scope.slides;
+    this.currentSlide = 1;
     this.subSlickConfig = {
       draggable: false,
       method:{},
     };
+    this._timeout(()=>{
 
+      this.intervalPromise = $interval(()=>{
+        this.slideTo(this.currentSlide+1,'next',false,true)
+      }, 3000,null,false);
+    },100)
+
+    this._scope.$on('$destroy', () =>{
+      this.stopInterval()
+    });
 
     this._timeout(()=>{
 
@@ -38,19 +50,69 @@ class imageSliderController{
 
       //prev arrow
       arrows[0].onclick = ()=>{
-        this.subSlickConfig.method.slickPrev();
+        this.slideTo(false,'prev',true);
       }
 
       //next
       arrows[1].onclick =()=>{
-        this.subSlickConfig.method.slickNext();
+        this.slideTo(false,'next',true);
       }
 
     });
 
   }
 
-  slideTo(id){
+  stopInterval(){
+    this._interval.cancel(this.intervalPromise);
+  }
+
+  /**
+   *
+   * @param {int} id the id to slide to
+   * @param {string} action ("next" || "prev")
+   * @param interval did interval called the function if not true it will stop the interval.
+   */
+  slideTo(id,action,skipMain,interval){
+
+    this.updateCurrentSlide(id);
+
+    this.updateSubCarousel(id,action)
+
+    if(!interval || interval ===false){
+      this.stopInterval();
+    }
+
+    if(!skipMain || skipMain ===false){
+      this.updateMainCarousel(id)
+    }
+
+
+  }
+
+  updateCurrentSlide(id){
+
+    if(id === this.slides.length+1){
+      this.currentSlide = 1;
+    }else{
+      this.currentSlide = id;
+    }
+  }
+
+  //todo better algorithm that check if next or prev should be called here
+  updateSubCarousel(id,action){
+    if(action === 'next'){
+      this.subSlickConfig.method.slickNext()
+      return;
+    }
+    if(action === 'prev'){
+      this.subSlickConfig.method.slickPrev()
+      return
+    }
+
+    this.subSlickConfig.method.slickGoTo(id - 1)
+  }
+
+  updateMainCarousel(id){
 
     angular.forEach(this.slides,(value)=>{
       if(value.id === id){
@@ -59,8 +121,6 @@ class imageSliderController{
       }
     });
 
-    //todo function that check if next or prev should be called here
-    this.subSlickConfig.method.slickGoTo(id - 1)
   }
 
   onImageUpdate(data){

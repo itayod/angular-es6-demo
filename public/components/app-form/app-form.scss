@@ -1,6 +1,11 @@
-span.alert.alert-danger {
-  display: block;
-  padding: 3px;
-  padding-left: 8px;
-  margin-bottom: 5px;
+#app-form{
+  span.alert.alert-danger {
+    display: block;
+    padding: 3px;
+    padding-left: 8px;
+    margin-bottom: 5px;
+  }
+  button.btn.btn-primary {
+    margin-top: 20px;
+  }
 }
