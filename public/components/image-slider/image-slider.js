@@ -15,12 +15,12 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel
         imageDidRemove: '&'
       },
       template:require('./image-slider.html'),
-      controller:imageSliderController,
+      controller:ImageSliderController,
       controllerAs:'imageSilder'
     }
   })
 
-class imageSliderController{
+class ImageSliderController{
   constructor($scope,$timeout,$interval){
 
     this._scope = $scope;
@@ -140,3 +140,5 @@ class imageSliderController{
   }
 
 }
+
+ImageSliderController.$inject=['$scope','$timeout','$interval'];

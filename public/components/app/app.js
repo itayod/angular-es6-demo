@@ -18,14 +18,14 @@ export default angular.module('app',[imageListService.name,imageSlider.name,appF
   .directive('app',function(){
     return{
       template:require('./app.html'),
-      controller:appController,
+      controller:AppController,
       controllerAs:"app"
     }
   });
 
-class appController{
+class AppController{
 
-  constructor(imageList,$q,$scope,$timeout){
+  constructor($scope,$q,$timeout,imageList){
     this.slides = imageList.getImageList();
     this.working = false;
     this._imageList = imageList;
@@ -71,11 +71,12 @@ class appController{
 
   }
 
-
+  //only for debug mode
   clearStorage(){
     this._imageList.clear();
     location.reload();
   }
 
-
 }
+
+AppController.$inject=['$scope','$q','$timeout','imageList'];

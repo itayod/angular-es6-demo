@@ -18,7 +18,7 @@ export default angular.module('imageSliderCard',[])
 
 class ImageSliderCardController{
 
-  constructor($scope,$element,$timeout){
+  constructor($scope,$element){
     this.form = {};
     this.scope = $scope;
     this.isEditting = false;
@@ -67,3 +67,4 @@ class ImageSliderCardController{
 
 
 }
+ImageSliderCardController.$inject=['$scope','$element'];

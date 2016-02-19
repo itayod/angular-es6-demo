@@ -4,7 +4,7 @@ export default angular.module('filePicker',[])
   .directive('filePicker',function(){
     return{
       template:require('./file-picker.html'),
-      controller:filePickerController,
+      controller:FilePickerController,
       controllerAs:'filePicker',
       scope:{
         onFileSelect:'&',
@@ -13,9 +13,9 @@ export default angular.module('filePicker',[])
     }
   });
 
-class filePickerController {
+class FilePickerController {
 
-  constructor($element,$scope){
+  constructor($scope,$element){
     var filePicker =$element.find('input');
 
     $(filePicker).change(function(){
@@ -24,10 +24,6 @@ class filePickerController {
 
   }
 
-
-
-
-
-
-
 }
+
+FilePickerController.$inject=['$scope','$element'];

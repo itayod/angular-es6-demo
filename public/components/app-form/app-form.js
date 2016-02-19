@@ -5,7 +5,7 @@ export default angular.module('appForm',[filePicker.name])
   .directive('appForm',function(){
     return{
       template:require('./app-form.html'),
-      controller:appFormController,
+      controller:AppFormController,
       controllerAs:'appForm',
       scope:{
         onFormSubmit:'&'
@@ -13,7 +13,7 @@ export default angular.module('appForm',[filePicker.name])
     }
   });
 
-class appFormController {
+class AppFormController {
 
   constructor($scope,$q){
     this.scope = $scope;
@@ -66,3 +66,5 @@ class appFormController {
 
 
 }
+
+AppFormController.$inject=['$scope','$q'];
