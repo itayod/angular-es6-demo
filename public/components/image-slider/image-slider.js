@@ -10,6 +10,7 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel
     return{
       scope:{
         slides:"=",//todo emit that
+        intervalTime:"@",
         imageDidUpadte: '&',
         imageDidRemove: '&'
       },
@@ -37,7 +38,7 @@ class ImageSliderController{
 
       this.intervalPromise = $interval(()=>{
         this.slideTo(this.currentSlide+1,'next',false,true)
-      }, 3000,null,false);
+      }, this._scope.intervalTime,null,false);
     });
 
     this._scope.$on('$destroy', () =>{

@@ -1,7 +1,7 @@
 <div class='image-card' ng-dblclick="imageSliderCard.editImage()">
-    <div class='panel-btn alert alert-error' >
-        <button type='button' class='close' ng-if="!image.active"  ng-click="imageSliderCard.imageDidRemove($event,{data:image})">×</button>
-        <i class='edit-btn glyphicon glyphicon-edit pull-right' ng-if="image.active" ng-click="imageSliderCard.editImage(true)"></i>
+    <div class='panel-btn' >
+        <i class='close' ng-click="imageSliderCard.imageDidRemove($event,{data:image})">×</i>
+        <i class='edit-btn glyphicon glyphicon-edit pull-right' ng-click="imageSliderCard.editImage(true)"></i>
     </div>
     <img ng-src="{{image.src}}">
     <div  ng-if="!imageSliderCard.isEditting">

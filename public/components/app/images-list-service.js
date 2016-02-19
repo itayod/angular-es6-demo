@@ -45,7 +45,6 @@ export class ImagesListService {
       this.images.push(data[i]);
       this.images = updateImagesActive(this.images,this.defualtActiveImage);
       this._localStorage.imageList = this.images;
-      console.log(this.images);
     }
     return this.getImageList();
   }

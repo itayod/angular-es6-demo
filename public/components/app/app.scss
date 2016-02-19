@@ -46,13 +46,8 @@ header.app-header{
   width: 0px;
 }
 
-.app-container {
-  left: 50%;
-  transform: translate(-46%);
-  top: 30px;
-}
 
-//todo
+//todo put that in mixin file
 .animate-if.ng-enter, .image-slider-container.ng-leave {
   -webkit-transition: 0.6s linear all;
   transition: 0.6s linear all;
