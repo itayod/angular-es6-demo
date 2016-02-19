@@ -51,3 +51,27 @@ header.app-header{
   transform: translate(-46%);
   top: 30px;
 }
+
+//todo
+.animate-if.ng-enter, .image-slider-container.ng-leave {
+  -webkit-transition: 0.6s linear all;
+  transition: 0.6s linear all;
+}
+
+.animate-if.ng-enter {
+  opacity: 0;
+}
+
+.animate-if.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.animate-if.ng-leave {
+  opacity:1;
+}
+
+.animate-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+

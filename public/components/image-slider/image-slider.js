@@ -9,8 +9,7 @@ export default angular.module('imageSlider',[ngAnimate,uiBotstrap,'slickCarousel
   .directive('imageSilder',function(){
     return{
       scope:{
-        slides:"=",
-        working: "=",
+        slides:"=",//todo emit that
         imageDidUpadte: '&',
         imageDidRemove: '&'
       },
@@ -32,12 +31,14 @@ class ImageSliderController{
       draggable: false,
       method:{},
     };
+
+
     this._timeout(()=>{
 
       this.intervalPromise = $interval(()=>{
         this.slideTo(this.currentSlide+1,'next',false,true)
       }, 3000,null,false);
-    },100)
+    });
 
     this._scope.$on('$destroy', () =>{
       this.stopInterval()
@@ -46,12 +47,12 @@ class ImageSliderController{
     this._timeout(()=>{
 
       //i know its a little hacky but...
-      var arrows = $(".image-slider-container")[0].getElementsByClassName('carousel-control')
+      var arrows = $(".image-slider-container")[0].getElementsByClassName('carousel-control');
 
       //prev arrow
       arrows[0].onclick = ()=>{
         this.slideTo(false,'prev',true);
-      }
+      };
 
       //next
       arrows[1].onclick =()=>{
@@ -76,7 +77,7 @@ class ImageSliderController{
 
     this.updateCurrentSlide(id);
 
-    this.updateSubCarousel(id,action)
+    this.updateSubCarousel(id,action);
 
     if(!interval || interval ===false){
       this.stopInterval();
@@ -101,11 +102,11 @@ class ImageSliderController{
   //todo better algorithm that check if next or prev should be called here
   updateSubCarousel(id,action){
     if(action === 'next'){
-      this.subSlickConfig.method.slickNext()
+      this.subSlickConfig.method.slickNext();
       return;
     }
     if(action === 'prev'){
-      this.subSlickConfig.method.slickPrev()
+      this.subSlickConfig.method.slickPrev();
       return
     }
 
@@ -128,14 +129,11 @@ class ImageSliderController{
   }
 
   onImageRemove(data){
-    if(data.active === true){
-      this._scope.working;
-      this.slideTo(data,true);
-    }
-    this.subSlickIsWorking = true;
+    this.stopInterval();
+
     this._timeout(()=>{
       this._scope.imageDidRemove({data:data.id});
-      this.subSlickIsWorking = false;
+
     })
   }
 
