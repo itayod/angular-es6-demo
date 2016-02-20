@@ -31,7 +31,7 @@ export class ImagesListService {
 
     this.defualtActiveImage = 0;
     this.images = this._localStorage.imageList || images;
-    this.images = updateImagesActive(this.images,this.defualtActiveImage);
+    this.images = this._localStorage.imageList = updateImagesActive(this.images,this.defualtActiveImage);
 
   }
 
@@ -53,9 +53,8 @@ export class ImagesListService {
 
     for (var i = 0; i < this.images.length; i++) {
       if (image.id === this.images[i].id) {
-
-        this._localStorage.imageList[i].title = this.images[i].title = image.title;
-        this._localStorage.imageList[i].description = this.images[i].description = image.description;
+        this.images[i].title = this._localStorage.imageList[i].title = image.title;
+        this.images[i].description = this._localStorage.imageList[i].description =  image.description;
         return this.getImageList();
       }
     }

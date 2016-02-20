@@ -1,9 +1,12 @@
 @import '../../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../../_base.sass';
 
-$headerHeight: 58px;
+
+
 
 body{
   background-color: #f5f5f5;
+  min-width: $minBodyWidth;
 }
 
 header.app-header{

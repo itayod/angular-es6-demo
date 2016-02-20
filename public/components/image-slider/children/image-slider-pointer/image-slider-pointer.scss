@@ -1,6 +1,9 @@
+@import '../../../../_base.sass';
+
 .pointer {
   position: absolute;
   width: 100%;
+  min-width:$minBodyWidth;
   height: 25px;
   transform: translateY(-100%);
   overflow: hidden; //!!!

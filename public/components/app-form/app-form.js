@@ -44,9 +44,12 @@ class AppFormController {
   }
 
   onFormSubmit(data){
-    //this.form = {};
     this.scope.onFormSubmit(data)
+    this.scope.form.$setUntouched();
+    this.scope.form.$submitted = false;
+    this.form = {};
   }
+
 
   _renderImage(image){
     var deffered = this._q.defer();
