@@ -20,7 +20,7 @@
 
 ## Installation
 ```
-$ git clone https://github.com/itayod/angular-webpack-redux.git
+$ git clone https://github.com/itayod/linnovateTest.git
 $ cd linnovateTest
 $ npm install
 $ bower install
